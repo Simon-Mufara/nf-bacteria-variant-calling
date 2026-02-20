@@ -1,0 +1,2 @@
+sample_id,fastq_1,fastq_2
+ERR2510654,data/reads/ERR2510654_1.fastq.gz,data/reads/ERR2510654_2.fastq.gz

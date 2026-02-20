@@ -1,0 +1,26 @@
+# Nextflow
+.nextflow*
+work/
+.nextflow.log
+
+# Results (keep only small demo artefacts if you want)
+results/
+
+# Data (never commit raw reads / refs)
+data/reads/
+data/ref/
+data/*.fastq*
+data/*.fq*
+data/*.fasta*
+data/*.fa*
+data/*.fna*
+data/*.gz
+
+# Reports (optional: keep 1 example in docs/)
+report-*.html
+timeline-*.html
+trace-*.txt
+
+# OS / editor
+.DS_Store
+.vscode/
