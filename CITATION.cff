@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+title: "nf-bacteria-variant-calling"
+message: "If you use this pipeline, please cite it as below."
+type: software
+authors:
+  - family-names: Mufara
+    given-names: Simon
+    affiliation: University of Cape Town
+    orcid: ""
+repository-code: "https://github.com/Simon-Mufara/nf-bacteria-variant-calling"
+license: MIT
+version: 1.0.0
+date-released: 2026-02-20
