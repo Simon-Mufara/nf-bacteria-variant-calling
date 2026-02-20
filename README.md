@@ -22,6 +22,17 @@ A reproducible **Nextflow DSL2 pipeline** for bacterial whole-genome variant cal
 This project demonstrates a **real, production-style genomics workflow** using public Illumina paired-end reads aligned to the *Mycobacterium tuberculosis* H37Rv reference genome.
 
 ---
+## QC Report
+
+An example MultiQC report generated from real MTB sequencing data:
+
+ **[Open MultiQC Report](docs/multiqc_report.html)**
+
+Key highlights:
+- ~99% reads retained after trimming
+- Q30 ≈ 95%
+- GC ≈ 65% (consistent with *M. tuberculosis*)
+- ~1.9k variants detected vs H37Rv
 
 ## Pipeline Overview
 
