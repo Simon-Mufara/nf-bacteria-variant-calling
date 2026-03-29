@@ -26,13 +26,39 @@ This project demonstrates a **real, production-style genomics workflow** using p
 
 An example MultiQC report generated from real MTB sequencing data:
 
- **[Open MultiQC Report](docs/multiqc_report.html)**
+**[Open MultiQC Report](docs/multiqc_report.html)**
 
 Key highlights:
 - ~99% reads retained after trimming
 - Q30 ≈ 95%
 - GC ≈ 65% (consistent with *M. tuberculosis*)
 - ~1.9k variants detected vs H37Rv
+
+---
+
+## Variant Visualization with IGV
+
+Below is an example IGV (Integrative Genomics Viewer) visualization of a high-confidence variant detected by this pipeline:
+
+<p align="center">
+  <img src="Final_Assignment/docs/igv_variant_visualization.png" width="1000" alt="IGV Variant Visualization">
+</p>
+
+**Variant Details (Position 103048):**
+- **Type:** SNP (Single Nucleotide Polymorphism)
+- **Substitution:** T → A
+- **Genotype:** 1/1 (homozygous)
+- **Read Depth:** 21 reads
+- **Quality Score:** 225.417
+
+**Visualization Interpretation:**
+- **Green vertical column:** Position 103048 (variant location)
+- **Green "A" bases:** Individual sequencing reads showing the alternate allele
+- **Gray horizontal bars:** Aligned read pairs spanning the region
+- **Blue bar:** Forward/reverse read orientation
+- **Interpretation:** All reads at this position show the A allele, confirming a high-confidence homozygous variant call
+
+---
 
 ## Pipeline Overview
 
