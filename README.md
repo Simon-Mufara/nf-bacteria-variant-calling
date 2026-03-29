@@ -21,7 +21,7 @@
 
 A reproducible **Nextflow DSL2 pipeline** for bacterial whole-genome variant calling on HPC using **SLURM + Singularity/Apptainer**.
 
-This project demonstrates a **production-style genomics workflow** using public Illumina paired-end reads aligned to the *Mycobacterium tuberculosis* H37Rv reference genome, encompassing quality control, read alignment, variant calling, and visualization.
+This project demonstrates a **production-style genomics workflow** using Illumina paired-end reads aligned to the *wildtype* bacterial reference genome, encompassing quality control, read alignment, variant calling, and visualization.
 
 ---
 
@@ -62,16 +62,16 @@ mkdir -p /cbio/users/simon/nextflow_work
 
 ### Download Data
 
-Download example TB reads:
+Download example reads:
 
 ```bash
-./scripts/download_tb_reads_ena.sh data/reads
+./scripts/download_reads.sh data/reads
 ```
 
-Download H37Rv reference genome:
+Download wildtype reference genome:
 
 ```bash
-./scripts/download_h37rv_ref.sh data/ref
+./scripts/download_reference.sh data/ref
 ```
 
 Create samplesheet:
@@ -88,7 +88,7 @@ Execute the pipeline with:
 nextflow run main.nf \
   -profile ilifu \
   --samplesheet data/samplesheet.csv \
-  --ref data/ref/H37Rv.fa \
+  --ref data/ref/wildtype.fna \
   -with-report -with-timeline -with-trace
 ```
 
@@ -121,15 +121,15 @@ The workflow performs the following sequential steps:
 
 ### QC Report
 
-An example MultiQC report generated from real MTB sequencing data:
+An example MultiQC report generated from real wildtype strain sequencing data:
 
 **[📊 Open MultiQC Report](docs/multiqc_report.html)**
 
 **Key Highlights:**
 - ~99% reads retained after quality trimming
 - Q30 ≈ 95% (high-quality bases)
-- GC content ≈ 65% (consistent with *M. tuberculosis*)
-- ~1.9k variants detected versus H37Rv
+- Consistent sequence quality across samples
+- ~1.9k variants detected versus wildtype reference
 
 ### Variant Visualization with IGV
 
@@ -253,10 +253,10 @@ ERR2510655,data/reads/ERR2510655_1.fastq.gz,data/reads/ERR2510655_2.fastq.gz
 FASTA format reference genome file:
 
 ```
-data/ref/H37Rv.fa
+data/ref/wildtype.fna
 ```
 
-**Genome Accession:** NC_000962.3 (*Mycobacterium tuberculosis* H37Rv)
+**Genome:** Wildtype bacterial strain
 
 ---
 
@@ -355,15 +355,15 @@ MIT License — See LICENSE file for details
 If you use this pipeline, please cite:
 
 ```bibtex
-@software{Mufara2024,
+@software{Mufara2026,
   author = {Mufara, Simon},
   title = {nf-bacteria-variant-calling: A Nextflow DSL2 pipeline for bacterial variant calling},
-  year = {2024},
+  year = {2026},
   url = {https://github.com/Simon-Mufara/nf-bacteria-variant-calling}
 }
 ```
 
 ---
 
-**Last Updated:** March 2024
+**Last Updated:** March 2026
 **Contact:** For questions or issues, please open an issue on GitHub.
