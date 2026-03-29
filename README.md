@@ -44,7 +44,7 @@ This project demonstrates a **production-style genomics workflow** using Illumin
 
 ### Prerequisites
 
-Ensure you have the required modules loaded on ilifu/SLURM:
+Ensure you have the required modules loaded on your SLURM cluster:
 
 ```bash
 module load nextflow
@@ -56,8 +56,8 @@ module load singularity
 Create required directories:
 
 ```bash
-mkdir -p /cbio/users/simon/.singularity/cache
-mkdir -p /cbio/users/simon/nextflow_work
+mkdir -p $HOME/.singularity/cache
+mkdir -p $HOME/nextflow_work
 ```
 
 ### Download Data
@@ -86,18 +86,20 @@ Execute the pipeline with:
 
 ```bash
 nextflow run main.nf \
-  -profile ilifu \
+  -profile standard \
   --samplesheet data/samplesheet.csv \
   --ref data/ref/wildtype.fna \
   -with-report -with-timeline -with-trace
 ```
+
+*Note: Replace `standard` with your cluster profile (e.g., `slurm`, `sge`, or `ilifu`)*
 
 ### Resume After Interruption
 
 To resume a failed run:
 
 ```bash
-nextflow run main.nf -profile ilifu -resume
+nextflow run main.nf -resume
 ```
 
 ---
@@ -209,7 +211,7 @@ nf-bacteria-variant-calling/
 - **Singularity** or **Apptainer** — Container runtime
 - **SLURM** scheduler — For HPC job submission
 
-### Module Loading (ilifu)
+### Module Loading (SLURM-based Clusters)
 
 ```bash
 module load nextflow
@@ -323,14 +325,15 @@ These thresholds are configurable in `main.nf` and can be adjusted for different
 
 ✅ **Standard Outputs** — Consistent directory structure and file naming
 
-### Running Reproducibly
+### Running on Different Clusters
 
 To ensure full reproducibility on other SLURM clusters:
 
 1. Load required modules (Nextflow, Singularity)
 2. Point to your own reference genome if needed (edit `conf/genomes.config`)
-3. Run with the appropriate profile: `-profile ilifu` (or create your own)
-4. All intermediate files are preserved for inspection and debugging
+3. Create a cluster-specific profile in `conf/` (e.g., `your_cluster.config`)
+4. Run with: `nextflow run main.nf -profile your_cluster`
+5. All intermediate files are preserved for inspection and debugging
 
 ---
 
